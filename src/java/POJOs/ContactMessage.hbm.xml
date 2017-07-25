@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 4, 2016 8:25:01 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJOs.ContactMessage" table="ContactMessage" catalog="onlinedoctor" optimistic-lock="version">
+        <id name="idMessage" type="java.lang.Integer">
+            <column name="idMessage" />
+            <generator class="identity" />
+        </id>
+        <property name="messageEmail" type="string">
+            <column name="MessageEmail" length="45" />
+        </property>
+        <property name="messageName" type="string">
+            <column name="MessageName" length="45" />
+        </property>
+        <property name="messageContent" type="string">
+            <column name="MessageContent" length="500" />
+        </property>
+    </class>
+</hibernate-mapping>

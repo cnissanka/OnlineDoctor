@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 4, 2016 8:25:01 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJOs.PrescriptionHasMedicine" table="prescription_has_medicine" catalog="onlinedoctor" optimistic-lock="version">
+        <id name="idPrescriptioHasMedicine" type="java.lang.Integer">
+            <column name="id_prescriptio_has_medicine" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="medicine" class="POJOs.Medicine" fetch="select">
+            <column name="medicine_idmedicine" not-null="true" />
+        </many-to-one>
+        <many-to-one name="prescription" class="POJOs.Prescription" fetch="select">
+            <column name="prescription_idprescription" not-null="true" />
+        </many-to-one>
+        <property name="directionUse" type="string">
+            <column name="direction_use" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

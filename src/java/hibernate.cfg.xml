@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/onlinedoctor?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">1234</property>
+    <mapping resource="POJOs/TimeTableServices.hbm.xml"/>
+    <mapping resource="POJOs/Grn.hbm.xml"/>
+    <mapping resource="POJOs/PatientHasMedicalservice.hbm.xml"/>
+    <mapping resource="POJOs/DoctorHasQualifications.hbm.xml"/>
+    <mapping resource="POJOs/BlogImages.hbm.xml"/>
+    <mapping resource="POJOs/DoctorClasses.hbm.xml"/>
+    <mapping resource="POJOs/MedicalServices.hbm.xml"/>
+    <mapping resource="POJOs/PrescriptionHasMedicine.hbm.xml"/>
+    <mapping resource="POJOs/Invoice.hbm.xml"/>
+    <mapping resource="POJOs/Shipping.hbm.xml"/>
+    <mapping resource="POJOs/Supplier.hbm.xml"/>
+    <mapping resource="POJOs/Symptom.hbm.xml"/>
+    <mapping resource="POJOs/DoctorClassRequirementsHasDoctorClasses.hbm.xml"/>
+    <mapping resource="POJOs/Administrator.hbm.xml"/>
+    <mapping resource="POJOs/Misc.hbm.xml"/>
+    <mapping resource="POJOs/DoctorClassRequirements.hbm.xml"/>
+    <mapping resource="POJOs/Prescription.hbm.xml"/>
+    <mapping resource="POJOs/ContactMessage.hbm.xml"/>
+    <mapping resource="POJOs/DoctorQualifications.hbm.xml"/>
+    <mapping resource="POJOs/BlogCaptions.hbm.xml"/>
+    <mapping resource="POJOs/User.hbm.xml"/>
+    <mapping resource="POJOs/DoctorFieldHasDoctor.hbm.xml"/>
+    <mapping resource="POJOs/AdminAccessRight.hbm.xml"/>
+    <mapping resource="POJOs/DieseaseHasSymptom.hbm.xml"/>
+    <mapping resource="POJOs/Doctor.hbm.xml"/>
+    <mapping resource="POJOs/Medicine.hbm.xml"/>
+    <mapping resource="POJOs/Patient.hbm.xml"/>
+    <mapping resource="POJOs/DoctorTemp.hbm.xml"/>
+    <mapping resource="POJOs/Blog.hbm.xml"/>
+    <mapping resource="POJOs/DoctorField.hbm.xml"/>
+    <mapping resource="POJOs/BlogReply.hbm.xml"/>
+    <mapping resource="POJOs/AdminAccess.hbm.xml"/>
+    <mapping resource="POJOs/Diesease.hbm.xml"/>
+    <mapping resource="POJOs/Appointment.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

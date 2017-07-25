@@ -1,0 +1,20 @@
+SMAP
+doctor_005fmedical_005fappointments_jsp.java
+JSP
+*S JSP
+*F
++ 0 doctor_medical_appointments.jsp
+doctor/doctor_medical_appointments.jsp
+*L
+5,24:48
+29,11:73
+39,4:84
+43:88,3
+44,40:91
+84,65:132
+148,2:197
+150,6:199,3
+156,2:217
+157,2:219
+158,8:221
+*E

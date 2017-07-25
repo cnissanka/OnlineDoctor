@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 4, 2016 8:25:01 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJOs.DoctorClassRequirementsHasDoctorClasses" table="doctorClassRequirements_has_doctor_classes" catalog="onlinedoctor" optimistic-lock="version">
+        <id name="iddoctorClassRequirementsHasDoctorClasses" type="java.lang.Integer">
+            <column name="iddoctorClassRequirements_has_doctor_classes" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="doctorClassRequirements" class="POJOs.DoctorClassRequirements" fetch="select">
+            <column name="doctorClassRequirements_iddoctorClassRequirements" not-null="true" />
+        </many-to-one>
+        <many-to-one name="doctorClasses" class="POJOs.DoctorClasses" fetch="select">
+            <column name="doctor_classes_iddoctor_classes" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

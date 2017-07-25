@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 4, 2016 8:25:01 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJOs.Appointment" table="appointment" catalog="onlinedoctor" optimistic-lock="version">
+        <id name="idappointment" type="java.lang.Integer">
+            <column name="idappointment" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="doctor" class="POJOs.Doctor" fetch="select">
+            <column name="doctor_iddoctor" not-null="true" />
+        </many-to-one>
+        <many-to-one name="patient" class="POJOs.Patient" fetch="select">
+            <column name="patient_idpatient" not-null="true" />
+        </many-to-one>
+        <property name="appointmentDate" type="string">
+            <column name="appointment_date" length="45" />
+        </property>
+        <property name="appointmentTime" type="string">
+            <column name="appointment_time" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

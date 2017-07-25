@@ -1,0 +1,10 @@
+SMAP
+doctor_005fprescriptions_jsp.java
+JSP
+*S JSP
+*F
++ 0 doctor_prescriptions.jsp
+doctor/doctor_prescriptions.jsp
+*L
+5,76:44
+*E

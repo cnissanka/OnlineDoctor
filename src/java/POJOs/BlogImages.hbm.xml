@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 4, 2016 8:25:01 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJOs.BlogImages" table="blog_images" catalog="onlinedoctor" optimistic-lock="version">
+        <id name="idblogImages" type="int">
+            <column name="idblog_images" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="blog" class="POJOs.Blog" fetch="select">
+            <column name="blog_idblog" not-null="true" />
+        </many-to-one>
+        <property name="blogImage" type="string">
+            <column name="blog_image" length="405" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="onlinedoctor"/>
+  <table-filter match-name="doctor_classes"/>
+  <table-filter match-name="administrator"/>
+  <table-filter match-name="GRN"/>
+  <table-filter match-name="TimeTable_Services"/>
+  <table-filter match-name="symptom"/>
+  <table-filter match-name="patient_has_medicalservice"/>
+  <table-filter match-name="ContactMessage"/>
+  <table-filter match-name="invoice"/>
+  <table-filter match-name="medicine"/>
+  <table-filter match-name="medical_services"/>
+  <table-filter match-name="supplier"/>
+  <table-filter match-name="doctor_temp"/>
+  <table-filter match-name="user"/>
+  <table-filter match-name="blog_captions"/>
+  <table-filter match-name="patient"/>
+  <table-filter match-name="admin_access"/>
+  <table-filter match-name="doctor_has_qualifications"/>
+  <table-filter match-name="prescription_has_medicine"/>
+  <table-filter match-name="prescription"/>
+  <table-filter match-name="doctor"/>
+  <table-filter match-name="doctor_field_has_doctor"/>
+  <table-filter match-name="doctorClassRequirements"/>
+  <table-filter match-name="doctorClassRequirements_has_doctor_classes"/>
+  <table-filter match-name="doctor_field"/>
+  <table-filter match-name="appointment"/>
+  <table-filter match-name="misc"/>
+  <table-filter match-name="blog_images"/>
+  <table-filter match-name="blog_reply"/>
+  <table-filter match-name="diesease"/>
+  <table-filter match-name="shipping"/>
+  <table-filter match-name="diesease_has_symptom"/>
+  <table-filter match-name="blog"/>
+  <table-filter match-name="admin_access_right"/>
+  <table-filter match-name="doctor_qualifications"/>
+</hibernate-reverse-engineering>

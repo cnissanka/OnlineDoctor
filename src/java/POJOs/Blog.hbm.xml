@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 4, 2016 8:25:01 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJOs.Blog" table="blog" catalog="onlinedoctor" optimistic-lock="version">
+        <id name="idblog" type="int">
+            <column name="idblog" />
+            <generator class="assigned" />
+        </id>
+        <property name="blogTitle" type="string">
+            <column name="blog_title" length="45" />
+        </property>
+        <property name="blogContent" type="string">
+            <column name="blog_content" length="8000" />
+        </property>
+        <property name="blogSummary" type="string">
+            <column name="blog_summary" length="45" />
+        </property>
+        <property name="blogCreation" type="string">
+            <column name="blog_creation" length="45" />
+        </property>
+        <property name="blogViews" type="string">
+            <column name="blog_views" length="45" />
+        </property>
+        <set name="blogImageses" table="blog_images" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="blog_idblog" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.BlogImages" />
+        </set>
+        <set name="blogCaptionses" table="blog_captions" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="blog_idblog" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.BlogCaptions" />
+        </set>
+    </class>
+</hibernate-mapping>

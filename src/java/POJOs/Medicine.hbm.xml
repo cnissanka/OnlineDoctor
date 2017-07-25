@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 4, 2016 8:25:01 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJOs.Medicine" table="medicine" catalog="onlinedoctor" optimistic-lock="version">
+        <id name="idmedicine" type="java.lang.Integer">
+            <column name="idmedicine" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="supplier" class="POJOs.Supplier" fetch="select">
+            <column name="supplier_idsupplier" not-null="true" />
+        </many-to-one>
+        <property name="medicineName" type="string">
+            <column name="medicine_name" length="45" />
+        </property>
+        <property name="medicineDescription" type="string">
+            <column name="medicine_description" length="45" />
+        </property>
+        <property name="medicineImage" type="string">
+            <column name="medicine_image" length="450" />
+        </property>
+        <property name="medicinePrice" type="java.lang.Double">
+            <column name="medicine_price" precision="22" scale="0" />
+        </property>
+        <property name="medicineQty" type="string">
+            <column name="medicine_qty" length="45" />
+        </property>
+        <set name="grns" table="GRN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="medicine_idmedicine" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.Grn" />
+        </set>
+        <set name="prescriptionHasMedicines" table="prescription_has_medicine" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="medicine_idmedicine" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.PrescriptionHasMedicine" />
+        </set>
+    </class>
+</hibernate-mapping>

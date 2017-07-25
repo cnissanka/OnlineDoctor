@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 4, 2016 8:25:01 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJOs.Administrator" table="administrator" catalog="onlinedoctor" optimistic-lock="version">
+        <id name="idadministrator" type="java.lang.Integer">
+            <column name="idadministrator" />
+            <generator class="identity" />
+        </id>
+        <property name="adminFname" type="string">
+            <column name="admin_fname" length="45" />
+        </property>
+        <property name="adminMname" type="string">
+            <column name="admin_mname" length="45" />
+        </property>
+        <property name="adminLname" type="string">
+            <column name="admin_lname" length="45" />
+        </property>
+        <set name="users" table="user" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="administrator_idadministrator" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.User" />
+        </set>
+        <set name="adminAccessRights" table="admin_access_right" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="administrator_idadministrator" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.AdminAccessRight" />
+        </set>
+    </class>
+</hibernate-mapping>

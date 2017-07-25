@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 4, 2016 8:25:01 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJOs.Prescription" table="prescription" catalog="onlinedoctor" optimistic-lock="version">
+        <id name="idprescription" type="java.lang.Integer">
+            <column name="idprescription" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="doctor" class="POJOs.Doctor" fetch="select">
+            <column name="doctor_iddoctor" not-null="true" />
+        </many-to-one>
+        <many-to-one name="patient" class="POJOs.Patient" fetch="select">
+            <column name="patient_idpatient" not-null="true" />
+        </many-to-one>
+        <property name="prescriptionStartdate" type="string">
+            <column name="prescription_startdate" length="45" />
+        </property>
+        <property name="prescriptionEnddate" type="string">
+            <column name="prescription_enddate" length="45" />
+        </property>
+        <property name="prescriptionStatus" type="string">
+            <column name="prescription_status" length="45" />
+        </property>
+        <set name="prescriptionHasMedicines" table="prescription_has_medicine" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="prescription_idprescription" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.PrescriptionHasMedicine" />
+        </set>
+    </class>
+</hibernate-mapping>

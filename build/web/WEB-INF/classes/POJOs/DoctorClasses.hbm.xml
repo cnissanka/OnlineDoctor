@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 4, 2016 8:25:01 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJOs.DoctorClasses" table="doctor_classes" catalog="onlinedoctor" optimistic-lock="version">
+        <id name="iddoctorClasses" type="java.lang.Integer">
+            <column name="iddoctor_classes" />
+            <generator class="identity" />
+        </id>
+        <property name="className" type="string">
+            <column name="className" length="45" />
+        </property>
+        <property name="classImage" type="string">
+            <column name="classImage" length="5000" />
+        </property>
+        <property name="classDescr" type="string">
+            <column name="classDescr" length="450" />
+        </property>
+        <set name="doctorClassRequirementsHasDoctorClasseses" table="doctorClassRequirements_has_doctor_classes" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="doctor_classes_iddoctor_classes" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.DoctorClassRequirementsHasDoctorClasses" />
+        </set>
+        <set name="doctorTemps" table="doctor_temp" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="doctor_classes_iddoctor_classes" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.DoctorTemp" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 4, 2016 8:25:01 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJOs.AdminAccess" table="admin_access" catalog="onlinedoctor" optimistic-lock="version">
+        <id name="idadminAccess" type="java.lang.Integer">
+            <column name="idadmin_access" />
+            <generator class="identity" />
+        </id>
+        <property name="accessComp" type="string">
+            <column name="access_comp" length="45" />
+        </property>
+        <set name="adminAccessRights" table="admin_access_right" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="admin_access_idadmin_access" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.AdminAccessRight" />
+        </set>
+    </class>
+</hibernate-mapping>

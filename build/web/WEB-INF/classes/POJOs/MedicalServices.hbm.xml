@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 4, 2016 8:25:01 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJOs.MedicalServices" table="medical_services" catalog="onlinedoctor" optimistic-lock="version">
+        <id name="idmedicalServices" type="java.lang.Integer">
+            <column name="idmedical_services" />
+            <generator class="identity" />
+        </id>
+        <property name="serviceName" type="string">
+            <column name="service_name" length="45" />
+        </property>
+        <property name="serviceDescription" type="string">
+            <column name="service_description" length="245" />
+        </property>
+        <property name="serviceImage" type="string">
+            <column name="service_image" length="450" />
+        </property>
+        <property name="servicePrice" type="java.lang.Double">
+            <column name="service_price" precision="22" scale="0" />
+        </property>
+        <set name="timeTableServiceses" table="TimeTable_Services" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="medical_services_idmedical_services" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.TimeTableServices" />
+        </set>
+        <set name="patientHasMedicalservices" table="patient_has_medicalservice" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="medical_services_idmedical_services" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.PatientHasMedicalservice" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 4, 2016 8:25:01 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJOs.Supplier" table="supplier" catalog="onlinedoctor" optimistic-lock="version">
+        <id name="idsupplier" type="java.lang.Integer">
+            <column name="idsupplier" />
+            <generator class="identity" />
+        </id>
+        <property name="supplierFname" type="string">
+            <column name="supplier_fname" length="45" />
+        </property>
+        <property name="supplierMname" type="string">
+            <column name="supplier_mname" length="45" />
+        </property>
+        <property name="supplierLname" type="string">
+            <column name="supplier_lname" length="45" />
+        </property>
+        <property name="supplierAddress" type="string">
+            <column name="supplier_address" length="45" />
+        </property>
+        <property name="supplierOrganizationName" type="string">
+            <column name="supplier_organization_name" length="45" />
+        </property>
+        <property name="supplierLand" type="string">
+            <column name="supplier_land" length="45" />
+        </property>
+        <property name="supplierPhone" type="string">
+            <column name="supplier_phone" length="45" />
+        </property>
+        <property name="supplierNic" type="string">
+            <column name="supplier_nic" length="45" />
+        </property>
+        <set name="medicines" table="medicine" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="supplier_idsupplier" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.Medicine" />
+        </set>
+        <set name="grns" table="GRN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="supplier_idsupplier" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.Grn" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 4, 2016 8:25:01 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJOs.Invoice" table="invoice" catalog="onlinedoctor" optimistic-lock="version">
+        <id name="idinvoice" type="int">
+            <column name="idinvoice" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="patient" class="POJOs.Patient" fetch="select">
+            <column name="patient_idpatient" not-null="true" />
+        </many-to-one>
+        <many-to-one name="shipping" class="POJOs.Shipping" fetch="select">
+            <column name="shipping_id" not-null="true" />
+        </many-to-one>
+        <property name="grossPrice" type="java.lang.Double">
+            <column name="gross_price" precision="22" scale="0" />
+        </property>
+        <property name="netPrice" type="java.lang.Double">
+            <column name="net_price" precision="22" scale="0" />
+        </property>
+        <property name="invoiceDate" type="string">
+            <column name="invoice_date" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

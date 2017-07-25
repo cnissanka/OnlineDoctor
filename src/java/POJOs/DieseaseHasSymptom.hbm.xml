@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 4, 2016 8:25:01 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJOs.DieseaseHasSymptom" table="diesease_has_symptom" catalog="onlinedoctor" optimistic-lock="version">
+        <id name="idRule" type="java.lang.Integer">
+            <column name="ID_Rule" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="diesease" class="POJOs.Diesease" fetch="select">
+            <column name="diesease_iddiesease" not-null="true" />
+        </many-to-one>
+        <many-to-one name="symptom" class="POJOs.Symptom" fetch="select">
+            <column name="symptom_idsymptom" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

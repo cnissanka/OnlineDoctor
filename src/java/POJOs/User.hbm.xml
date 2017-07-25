@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 4, 2016 8:25:01 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJOs.User" table="user" catalog="onlinedoctor" optimistic-lock="version">
+        <id name="iduser" type="java.lang.Integer">
+            <column name="iduser" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="administrator" class="POJOs.Administrator" fetch="select">
+            <column name="administrator_idadministrator" not-null="true" />
+        </many-to-one>
+        <many-to-one name="doctor" class="POJOs.Doctor" fetch="select">
+            <column name="doctor_iddoctor" not-null="true" />
+        </many-to-one>
+        <many-to-one name="patient" class="POJOs.Patient" fetch="select">
+            <column name="patient_idpatient" not-null="true" />
+        </many-to-one>
+        <property name="username" type="string">
+            <column name="username" length="45" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="45" />
+        </property>
+        <property name="usertype" type="string">
+            <column name="usertype" length="45" />
+        </property>
+        <set name="blogCaptionses" table="blog_captions" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_iduser" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.BlogCaptions" />
+        </set>
+        <set name="blogReplies" table="blog_reply" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_iduser" not-null="true" />
+            </key>
+            <one-to-many class="POJOs.BlogReply" />
+        </set>
+    </class>
+</hibernate-mapping>
